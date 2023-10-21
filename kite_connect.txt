@@ -1,0 +1,20 @@
+from kiteconnect import KiteConnect
+import pandas as pd
+
+# Define API key and access token
+api_key = "your_api_key"
+access_token = "your_access_token"
+
+# Initialize Kite Connect
+kite = KiteConnect(api_key=api_key)
+kite.set_access_token(access_token)
+
+# Get stock details
+instrument_tokens = [600123] # replace this with the actual list of stock tokens you want to fetch
+instrument_data = kite.get_instruments(instrument_tokens)
+
+# Convert instrument data to a pandas DataFrame
+stock_df = pd.DataFrame(instrument_data)
+
+# Print the DataFrame
+print(stock_df)
